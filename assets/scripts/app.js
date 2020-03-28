@@ -15,6 +15,17 @@ function createLogOutput(oprator, resultBeforeCal, calNumber) {
     outputResult(currentResult, currentCalculation);
 }
 
+function writeToLog(oprator, prevresult, numbered, calresult) {
+    const logEntry = {
+        opration: oprator, //make an object from the
+        prevResult: prevresult, //last seen result
+        number: numbered, //entered number
+        result: calresult //new genereated result
+    };
+    logEntries.push(logEntry);
+    console.log(logEntries);
+}
+
 function add() {
     //if this button clicked without any number it_
     //_shoud be nan an logical error ?????
@@ -22,14 +33,7 @@ function add() {
     const beforeResult = currentResult;
     currentResult += enteredNumber;
     createLogOutput("+", beforeResult, enteredNumber);
-    const logEntry = {
-        opration: "ADD",     //make an object from the 
-        prevResult: beforeResult,//last seen result
-        number: enteredNumber,//entered number
-        result: currentResult//new genereated result
-    };
-    logEntries.push(logEntry);
-    console.log(logEntries);
+    writeToLog("ADD", beforeResult, enteredNumber, currentResult);
 }
 
 function subtract() {
@@ -37,6 +41,7 @@ function subtract() {
     const beforeResult = currentResult;
     currentResult -= enteredNumber;
     createLogOutput("-", beforeResult, enteredNumber);
+    writeToLog("SUBTRACT", beforeResult, enteredNumber, currentResult);
 }
 
 function multiply() {
@@ -44,6 +49,7 @@ function multiply() {
     const beforeResult = currentResult;
     currentResult *= enteredNumber;
     createLogOutput("*", beforeResult, enteredNumber);
+    writeToLog("MULTIPLY", beforeResult, enteredNumber, currentResult);
 }
 
 function divide() {
@@ -51,6 +57,7 @@ function divide() {
     const beforeResult = currentResult;
     currentResult /= enteredNumber;
     createLogOutput("/", beforeResult, enteredNumber);
+    writeToLog("DIVIDE", beforeResult, enteredNumber, currentResult);
 }
 
 function clear() {}
