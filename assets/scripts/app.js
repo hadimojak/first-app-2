@@ -2,11 +2,11 @@ const defaultResult = 0;
 let currentResult = defaultResult;
 let logEntries = []; //literal for store log of oprator
 
-function getUserInputNum() {
+function getUserInputNum() {//get input from input field in html
     if (parseInt(userInput.value)) {
         return parseInt(userInput.value);
     }
-    return "enter first num"; //get input from input field in html
+    return 0; 
 }
 
 //create caculation log and show input numer in calnumber
