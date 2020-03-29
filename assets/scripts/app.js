@@ -28,22 +28,29 @@ function writeToLog(oprator, prevresult, numbered, calresult) {
     console.log(logEntries);
 }
 
-function add() {
-    //if this button clicked without any number it_
-    //_shoud be nan an logical error ?????
+function calculation(calculationType) {
     const enteredNumber = getUserInputNum();
     const beforeResult = currentResult;
-    currentResult += enteredNumber;
-    createLogOutput("+", beforeResult, enteredNumber);
-    writeToLog("ADD", beforeResult, enteredNumber, currentResult);
+    let mathOprator;
+    if (calculationType === "ADD") {
+        currentResult += enteredNumber;
+        mathOprator = "+";
+    } else {
+        currentResult -= enteredNumber;
+        mathOprator = "-";
+    }
+    createLogOutput(mathOprator, beforeResult, enteredNumber);
+    writeToLog(calculationType, beforeResult, enteredNumber, currentResult);
+}
+
+function add() {
+    //if this button clicked without any number it_
+    //_shoud be nan an logical error ????? handle in input function line 7,8,9
+    calculation("ADD");
 }
 
 function subtract() {
-    const enteredNumber = getUserInputNum();
-    const beforeResult = currentResult;
-    currentResult -= enteredNumber;
-    createLogOutput("-", beforeResult, enteredNumber);
-    writeToLog("SUBTRACT", beforeResult, enteredNumber, currentResult);
+    calculation("SUBTRACT");
 }
 
 function multiply() {
