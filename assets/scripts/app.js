@@ -6,8 +6,9 @@ function getUserInputNum() {
     //get input from input field in html
     if (parseInt(userInput.value)) {
         return parseInt(userInput.value);
+    } else {
+        return 0;
     }
-    return 0;
 }
 
 //create caculation log and show input numer in calnumber
