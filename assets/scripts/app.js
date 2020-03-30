@@ -4,11 +4,12 @@ let logEntries = []; //literal for store log of oprator
 
 function getUserInputNum() {
     //get input from input field in html
-    if (parseInt(userInput.value)) {
-        return parseInt(userInput.value);
-    } else {
-        return 0;
-    }
+    // if (parseInt(userInput.value)) {
+    //     return parseInt(userInput.value);
+    // } else {
+    //     return 0;
+    // }
+    return parseInt(userInput.value);
 }
 
 //create caculation log and show input numer in calnumber
@@ -30,14 +31,24 @@ function writeToLog(oprator, prevresult, numbered, calresult) {
 
 function calculation(calculationType) {
     const enteredNumber = getUserInputNum();
+    if (!enteredNumber) {
+        //check the number is valid or not
+        return;
+    }
     const beforeResult = currentResult;
     let mathOprator;
     if (calculationType === "ADD") {
         currentResult += enteredNumber;
         mathOprator = "+";
-    } else {
+    } else if (calculationType === "SUBTRACT") {
         currentResult -= enteredNumber;
         mathOprator = "-";
+    } else if (calculationType === "MULTIPLY") {
+        currentResult *= enteredNumber;
+        mathOprator = "*";
+    } else if (calculationType === "DIVIDE") {
+        currentResult /= enteredNumber;
+        mathOprator = "/";
     }
     createLogOutput(mathOprator, beforeResult, enteredNumber);
     writeToLog(calculationType, beforeResult, enteredNumber, currentResult);
@@ -54,19 +65,11 @@ function subtract() {
 }
 
 function multiply() {
-    const enteredNumber = getUserInputNum();
-    const beforeResult = currentResult;
-    currentResult *= enteredNumber;
-    createLogOutput("*", beforeResult, enteredNumber);
-    writeToLog("MULTIPLY", beforeResult, enteredNumber, currentResult);
+    calculation("MULTIPLY");
 }
 
 function divide() {
-    const enteredNumber = getUserInputNum();
-    const beforeResult = currentResult;
-    currentResult /= enteredNumber;
-    createLogOutput("/", beforeResult, enteredNumber);
-    writeToLog("DIVIDE", beforeResult, enteredNumber, currentResult);
+    calculation("DIVIDE");
 }
 
 function clear() {}
