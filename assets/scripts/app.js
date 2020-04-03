@@ -12,7 +12,7 @@ function getUserInputNum() {
     return parseInt(userInput.value);
 }
 
-//create caculation log and show input numer in calnumber
+//create caculation log and show input number in calnumber
 function createLogOutput(oprator, resultBeforeCal, calNumber) {
     const currentCalculation = `${resultBeforeCal} ${oprator} ${calNumber}`;
     outputResult(currentResult, currentCalculation);
