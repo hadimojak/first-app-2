@@ -3,16 +3,9 @@ let currentResult = defaultResult;
 let logEntries = []; //literal for store log of oprator
 
 function getUserInputNum() {
-    //get input from input field in html
-    // if (parseInt(userInput.value)) {
-    //     return parseInt(userInput.value);
-    // } else {
-    //     return 0;
-    // }
     return parseInt(userInput.value);
 }
-
-//create caculation log and show input number in calnumber
+//create caculation log and show input numer in calnumber
 function createLogOutput(oprator, resultBeforeCal, calNumber) {
     const currentCalculation = `${resultBeforeCal} ${oprator} ${calNumber}`;
     outputResult(currentResult, currentCalculation);
@@ -54,19 +47,6 @@ function calculation(calculationType) {
     writeToLog(calculationType, beforeResult, enteredNumber, currentResult);
 }
 
-{// function add() {
-//     calculation("ADD");
-// }
-// function subtract() {
-//     calculation("SUBTRACT");
-// }
-// function multiply() {
-//     calculation("MULTIPLY");
-// }
-// function divide() {
-//     calculation("DIVIDE");
-// }
-}
 addBtn.addEventListener("click", () => calculation("ADD"));
 subtractBtn.addEventListener("click", () => calculation("SUBTRACT"));
 multiplyBtn.addEventListener("click", () => calculation("MULTIPLY"));
