@@ -23,7 +23,7 @@ function writeToLog(oprator, prevresult, numbered, calresult) {
         opration: oprator, //make an object from the
         prevResult: prevresult, //last seen result
         number: numbered, //entered number
-        result: calresult //new genereated result
+        result: calresult, //new genereated result
     };
     logEntries.push(logEntry);
     console.log(logEntries);
@@ -54,27 +54,20 @@ function calculation(calculationType) {
     writeToLog(calculationType, beforeResult, enteredNumber, currentResult);
 }
 
-function add() {
-    //if this button clicked without any number it_
-    //_shoud be nan an logical error ????? handle in input function line 7,8,9
-    calculation("ADD");
+{// function add() {
+//     calculation("ADD");
+// }
+// function subtract() {
+//     calculation("SUBTRACT");
+// }
+// function multiply() {
+//     calculation("MULTIPLY");
+// }
+// function divide() {
+//     calculation("DIVIDE");
+// }
 }
-
-function subtract() {
-    calculation("SUBTRACT");
-}
-
-function multiply() {
-    calculation("MULTIPLY");
-}
-
-function divide() {
-    calculation("DIVIDE");
-}
-
-function clear() {}
-
-addBtn.addEventListener("click", add);
-subtractBtn.addEventListener("click", subtract);
-multiplyBtn.addEventListener("click", multiply);
-divideBtn.addEventListener("click", divide);
+addBtn.addEventListener("click", () => calculation("ADD"));
+subtractBtn.addEventListener("click", () => calculation("SUBTRACT"));
+multiplyBtn.addEventListener("click", () => calculation("MULTIPLY"));
+divideBtn.addEventListener("click", () => calculation("DIVIDE"));
