@@ -5,22 +5,6 @@ let logEntries = []; //literal for store log of oprator
 function getUserInputNum() {
   return parseInt(userInput.value);
 }
-//create caculation log and show input numer in calnumber
-function createLogOutput(oprator, resultBeforeCal, calNumber) {
-  const currentCalculation = `${resultBeforeCal} ${oprator} ${calNumber}`;
-  outputResult(currentResult, currentCalculation);
-}
-
-function writeToLog(oprator, prevresult, numbered, calresult) {
-  const logEntry = {
-    opration: oprator, //make an object from the
-    prevResult: prevresult, //last seen result
-    number: numbered, //entered number
-    result: calresult, //new genereated result
-  };
-  logEntries.push(logEntry);
-  console.log(logEntries);
-}
 
 function calculation(calculationType) {
   const enteredNumber = getUserInputNum();
@@ -45,6 +29,23 @@ function calculation(calculationType) {
   }
   createLogOutput(mathOprator, beforeResult, enteredNumber);
   writeToLog(calculationType, beforeResult, enteredNumber, currentResult);
+}
+
+//create caculation log and show input numer in calnumber
+function createLogOutput(oprator, resultBeforeCal, calNumber) {
+  const currentCalculation = `${resultBeforeCal} ${oprator} ${calNumber}`;
+  outputResult(currentResult, currentCalculation);
+}
+
+function writeToLog(oprator, prevresult, numbered, calresult) {
+  const logEntry = {
+    opration: oprator, //make an object from the
+    prevResult: prevresult, //last seen result
+    number: numbered, //entered number
+    result: calresult, //new genereated result
+  };
+  logEntries.push(logEntry);
+  console.log(logEntries);
 }
 
 addBtn.addEventListener("click", () => calculation("ADD"));
